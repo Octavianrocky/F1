@@ -1,9 +1,18 @@
-
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://i.imgur.com/kj6zKXE.jpeg'); /* Imposta l'immagine di sfondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
 
 h1 {
     text-align: center;
     color: #f9a825; /* Giallo brillante */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Aggiungi un'ombra al testo per migliorare la visibilità */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .container {
@@ -11,9 +20,9 @@ h1 {
     margin: 0 auto;
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-trasparente per migliorare la leggibilità */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-trasparente */
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Aggiungi una leggera ombra per far risaltare il contenitore */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .form-group {
@@ -22,7 +31,7 @@ h1 {
 
 label {
     font-weight: bold;
-    color: #f9a825; /* Giallo brillante */
+    color: #f9a825;
 }
 
 input {
@@ -30,14 +39,14 @@ input {
     width: 100%;
     font-size: 16px;
     margin-top: 5px;
-    border: 1px solid #f9a825; /* Giallo brillante */
+    border: 1px solid #f9a825;
     background-color: #333;
     color: white;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #f9a825; /* Giallo brillante */
+    background-color: #f9a825;
     color: white;
     border: none;
     cursor: pointer;
@@ -46,7 +55,7 @@ button {
 }
 
 button:hover {
-    background-color: #f57f17; /* Giallo più scuro */
+    background-color: #f57f17;
 }
 
 .graph-bar {
@@ -60,7 +69,7 @@ button:hover {
 
 .graph-bar .fill {
     height: 100%;
-    background-color: #f9a825; /* Giallo brillante */
+    background-color: #f9a825;
     border-radius: 5px;
 }
 
@@ -71,24 +80,12 @@ button:hover {
 }
 
 .alert {
-    color: #ff5722; /* Arancione scuro per allerta */
+    color: #ff5722;
 }
 
-/* Aggiunta per l'immagine della Ferrari */
 .car-image {
     width: 80%;
     max-width: 600px;
     margin: 30px auto;
     border-radius: 15px;
 }
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('https://static.sky.it/editorialimages/e670c3d529f63cd3bceed37cce2f3c44b174a2bd/skysport/it/motori/formula-1/2022/09/07/f1-ferrari-gp-monza-macchina-tuta-piloti-foto-video/f1_gp_italia_ferrari_giallo_modena_leclerc_twitetr.jpg'); /* Imposta l'immagine di sfondo */
-    background-size: cover; /* Adatta l'immagine per coprire tutta la pagina */
-    background-position: center; /* Centra l'immagine */
-    background-attachment: fixed; /* Fissa lo sfondo per farlo rimanere statico durante lo scorrimento */
-    color: #fff;
-}
-
