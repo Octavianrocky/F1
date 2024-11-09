@@ -11,9 +11,6 @@
     <h1>Monitoraggio Parametri Auto</h1>
 
     <div class="container">
-        <!-- Immagine Ferrari F1 -->
-        <img src="https://static.sky.it/editorialimages/e670c3d529f63cd3bceed37cce2f3c44b174a2bd/skysport/it/motori/formula-1/2022/09/07/f1-ferrari-gp-monza-macchina-tuta-piloti-foto-video/f1_gp_italia_ferrari_giallo_modena_leclerc_twitetr.jpg" alt="Ferrari F1" class="car-image">
-
         <!-- Form per inserire i parametri -->
         <div class="form-group">
             <label for="tempGomme">Temperatura delle gomme (°C):</label>
@@ -28,6 +25,17 @@
         <div class="form-group">
             <label for="caricoAero">Carico aerodinamico (unità):</label>
             <input type="number" id="caricoAero" placeholder="Inserisci il carico aerodinamico">
+        </div>
+
+        <!-- Nuovi parametri da aggiungere -->
+        <div class="form-group">
+            <label for="tempAria">Temperatura dell'aria (°C):</label>
+            <input type="number" id="tempAria" placeholder="Inserisci la temperatura dell'aria">
+        </div>
+
+        <div class="form-group">
+            <label for="tempAsfalto">Temperatura dell'asfalto (°C):</label>
+            <input type="number" id="tempAsfalto" placeholder="Inserisci la temperatura dell'asfalto">
         </div>
 
         <button onclick="calcolaParametri()">Calcola e Mostra Risultati</button>
@@ -47,6 +55,17 @@
             <p>Carico aerodinamico: <span id="caricoAeroResult"></span></p>
             <div class="graph-bar">
                 <div id="caricoAeroBar" class="fill"></div>
+            </div>
+
+            <!-- Nuovi parametri aggiunti -->
+            <p>Temperatura dell'aria: <span id="tempAriaResult"></span>°C</p>
+            <div class="graph-bar">
+                <div id="tempAriaBar" class="fill"></div>
+            </div>
+
+            <p>Temperatura dell'asfalto: <span id="tempAsfaltoResult"></span>°C</p>
+            <div class="graph-bar">
+                <div id="tempAsfaltoBar" class="fill"></div>
             </div>
 
             <div id="feedback" class="result"></div>
