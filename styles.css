@@ -1,20 +1,28 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #1c1c1c; /* Nero di sfondo */
+    padding: 0;
+    background-image: url('https://www.giornalemotori.com/wp-content/uploads/2013/01/ferrari_f2004.jpg'); /* Imposta l'immagine come sfondo */
+    background-size: cover; /* Adatta l'immagine per coprire tutta la pagina */
+    background-position: center; /* Centra l'immagine */
+    background-attachment: fixed; /* Fissa lo sfondo per farlo rimanere statico durante lo scorrimento */
     color: #fff;
 }
 
 h1 {
     text-align: center;
     color: #f44336; /* Rosso Ferrari */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Aggiungi un'ombra al testo per migliorare la visibilità */
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-trasparente per migliorare la leggibilità */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); /* Aggiungi una leggera ombra per far risaltare il contenitore */
 }
 
 .form-group {
@@ -73,11 +81,4 @@ button:hover {
 
 .alert {
     color: #ff5722; /* Arancione scuro per allerta */
-}
-
-.car-image {
-    margin-top: 30px;
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
 }
