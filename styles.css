@@ -90,3 +90,14 @@ button:hover {
     margin: 30px auto;
     border-radius: 15px;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://static.sky.it/editorialimages/e670c3d529f63cd3bceed37cce2f3c44b174a2bd/skysport/it/motori/formula-1/2022/09/07/f1-ferrari-gp-monza-macchina-tuta-piloti-foto-video/f1_gp_italia_ferrari_giallo_modena_leclerc_twitetr.jpg'); /* Imposta l'immagine di sfondo */
+    background-size: cover; /* Adatta l'immagine per coprire tutta la pagina */
+    background-position: center; /* Centra l'immagine */
+    background-attachment: fixed; /* Fissa lo sfondo per farlo rimanere statico durante lo scorrimento */
+    color: #fff;
+}
+
