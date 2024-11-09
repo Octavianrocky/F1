@@ -1,13 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('https://i.imgur.com/kj6zKXE.jpeg'); /* Imposta l'immagine di sfondo */
-    background-size: cover; /* Adatta l'immagine per coprire tutta la pagina */
-    background-position: center; /* Centra l'immagine */
-    background-attachment: fixed; /* Fissa lo sfondo per farlo rimanere statico durante lo scorrimento */
-    color: #fff;
-}
+
 
 h1 {
     text-align: center;
