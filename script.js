@@ -13,112 +13,39 @@ function calcolaParametri() {
     document.getElementById("tempAriaResult").innerText = tempAria.toFixed(2);
     document.getElementById("tempAsfaltoResult").innerText = tempAsfalto.toFixed(2);
 
-    // Grafico della temperatura delle gomme
-    let tempGommeWidth = (tempGomme / 150) * 100;
-    if (tempGommeWidth > 100) tempGommeWidth = 100;
-    document.getElementById("tempGommeBar").style.width = tempGommeWidth + "%";
-    // Imposta il colore della barra delle gomme
-    setBarColor("tempGommeBar", tempGomme, 30, 120);
+    // Imposta il colore delle barre in base ai valori
+    setBarColor("tempGommeBar", tempGomme, 75, 84, 109, 119, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("tempMotoreBar", tempMotore, 75, 83, 115, 140, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("caricoAeroBar", caricoAero, 0.1, 2, 3.5, 5, "", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("tempAriaBar", tempAria, 0, 15, 21, 36, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("tempAsfaltoBar", tempAsfalto, 0, 12, 17, 42, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
 
-    // Grafico della temperatura del motore
-    let tempMotoreWidth = (tempMotore / 150) * 100;
-    if (tempMotoreWidth > 100) tempMotoreWidth = 100;
-    document.getElementById("tempMotoreBar").style.width = tempMotoreWidth + "%";
-    // Imposta il colore della barra del motore
-    setBarColor("tempMotoreBar", tempMotore, 60, 120);
-
-    // Grafico del carico aerodinamico
-    let caricoAeroWidth = (caricoAero / 10) * 100;
-    if (caricoAeroWidth > 100) caricoAeroWidth = 100;
-    document.getElementById("caricoAeroBar").style.width = caricoAeroWidth + "%";
-    // Imposta il colore della barra del carico aerodinamico
-    setBarColor("caricoAeroBar", caricoAero, 3, 7);
-
-    // Grafico della temperatura dell'aria
-    let tempAriaWidth = (tempAria / 50) * 100;
-    if (tempAriaWidth > 100) tempAriaWidth = 100;
-    document.getElementById("tempAriaBar").style.width = tempAriaWidth + "%";
-    // Imposta il colore della barra della temperatura dell'aria
-    setBarColor("tempAriaBar", tempAria, 10, 40);
-
-    // Grafico della temperatura dell'asfalto
-    let tempAsfaltoWidth = (tempAsfalto / 80) * 100;
-    if (tempAsfaltoWidth > 100) tempAsfaltoWidth = 100;
-    document.getElementById("tempAsfaltoBar").style.width = tempAsfaltoWidth + "%";
-    // Imposta il colore della barra della temperatura dell'asfalto
-    setBarColor("tempAsfaltoBar", tempAsfalto, 20, 60);
-
-    // Aggiungi feedback
-    let feedback = '';
-
-    // Feedback sulla temperatura delle gomme
-    if (tempGomme < 30) {
-        feedback += "<p class='low'>Temperatura delle gomme: Bassa, potrebbe influire sulla prestazione.</p>";
-    } else if (tempGomme > 120) {
-        feedback += "<p class='high'>Temperatura delle gomme: Alta, attenzione al surriscaldamento.</p>";
-    } else if (tempGomme >= 30 && tempGomme <= 50) {
-        feedback += "<p class='warning'>Temperatura delle gomme: Intermedia, monitorare le prestazioni.</p>";
-    } else {
-        feedback += "<p class='optimal'>Temperatura delle gomme: Ottimale.</p>";
-    }
-
-    // Feedback sulla temperatura del motore
-    if (tempMotore < 60) {
-        feedback += "<p class='low'>Temperatura del motore: Bassa, potrebbe non essere al massimo delle prestazioni.</p>";
-    } else if (tempMotore > 120) {
-        feedback += "<p class='high'>Temperatura del motore: Alta, attenzione al rischio di danni.</p>";
-    } else if (tempMotore >= 60 && tempMotore <= 90) {
-        feedback += "<p class='warning'>Temperatura del motore: Intermedia, monitorare l'efficienza.</p>";
-    } else {
-        feedback += "<p class='optimal'>Temperatura del motore: Ottimale.</p>";
-    }
-
-    // Feedback sul carico aerodinamico
-    if (caricoAero < 3) {
-        feedback += "<p class='low'>Carico aerodinamico: Basso, potresti avere una minore stabilità.</p>";
-    } else if (caricoAero > 7) {
-        feedback += "<p class='high'>Carico aerodinamico: Alto, maggiore stabilità ma resistenza all'aria aumentata.</p>";
-    } else if (caricoAero >= 3 && caricoAero <= 5) {
-        feedback += "<p class='warning'>Carico aerodinamico: Intermedio, buona stabilità ma attenzione alla resistenza.</p>";
-    } else {
-        feedback += "<p class='optimal'>Carico aerodinamico: Ottimale.</p>";
-    }
-
-    // Feedback sulla temperatura dell'aria
-    if (tempAria < 10) {
-        feedback += "<p class='optimal'>Temperatura dell'aria: Fredda, ottima per le prestazioni del motore.</p>";
-    } else if (tempAria > 40) {
-        feedback += "<p class='high'>Temperatura dell'aria: Troppo calda, potrebbe ridurre le prestazioni.</p>";
-    } else if (tempAria >= 25 && tempAria <= 32) {
-        feedback += "<p class='warning'>Temperatura dell'aria: Intermedia, ottima per la guida ma monitorare.</p>";
-    } else {
-        feedback += "<p class='optimal'>Temperatura dell'aria: Ottimale per le prestazioni.</p>";
-    }
-
-    // Feedback sulla temperatura dell'asfalto
-    if (tempAsfalto < 20) {
-        feedback += "<p class='low'>Temperatura dell'asfalto: Bassa, rischio di perdita di aderenza.</p>";
-    } else if (tempAsfalto > 60) {
-        feedback += "<p class='high'>Temperatura dell'asfalto: Alta, attenzione al degrado delle gomme.</p>";
-    } else if (tempAsfalto >= 30 && tempAsfalto <= 40) {
-        feedback += "<p class='warning'>Temperatura dell'asfalto: Intermedia, ottima per la prestazione ma monitorare.</p>";
-    } else {
-        feedback += "<p class='optimal'>Temperatura dell'asfalto: Ottimale.</p>";
-    }
-
-    // Mostra feedback
-    document.getElementById("feedback").innerHTML = feedback;
+    // Mostra i risultati
     document.getElementById("resultSection").style.display = "block";
 }
 
-function setBarColor(barId, value, minValue, maxValue) {
-    let bar = document.getElementById(barId);
-    let percentage = (value - minValue) / (maxValue - minValue) * 100;
-    if (percentage <= 20) {
-        bar.style.backgroundColor = "#ff5722"; // Rosso
-    } else if (percentage <= 70) {
-        bar.style.backgroundColor = "#ffeb3b"; // Giallo
+// Funzione per calcolare e impostare il colore della barra
+function setBarColor(elementId, value, minYellow, maxYellow, minGreen, maxGreen, unit, colors) {
+    let percentage = 0;
+    let color = colors[0]; // Imposta rosso di default
+
+    if (value < minYellow) {
+        percentage = 0; // Rosso
+    } else if (value >= minYellow && value <= maxYellow) {
+        percentage = ((value - minYellow) / (maxYellow - minYellow)) * 100; // Giallo
+        color = colors[1]; 
+    } else if (value > maxYellow && value <= minGreen) {
+        percentage = ((value - maxYellow) / (minGreen - maxYellow)) * 100; // Giallo sfumato a verde
+        color = colors[1];
+    } else if (value > minGreen && value <= maxGreen) {
+        percentage = ((value - minGreen) / (maxGreen - minGreen)) * 100; // Verde
+        color = colors[2]; 
     } else {
-        bar.style.backgroundColor = "#4caf50"; // Verde
+        percentage = 100; // Verde intenso
+        color = colors[2]; 
     }
+
+    document.getElementById(elementId).style.width = percentage + "%";
+    document.getElementById(elementId).style.background = `linear-gradient(90deg, ${color} ${percentage}%, #fff ${percentage}%)`;
+    document.getElementById(elementId).style.transition = "width 0.3s, background 0.3s"; 
 }
