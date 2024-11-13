@@ -29,12 +29,12 @@ function calcolaParametri() {
     document.getElementById("caricoAeroBar").style.width = caricoAeroWidth + "%";
 
     // Grafico della temperatura dell'aria
-    let tempAriaWidth = (tempAria / 50) * 100;  // Assuming 50°C as max for air temperature
+    let tempAriaWidth = (tempAria / 50) * 100;
     if (tempAriaWidth > 100) tempAriaWidth = 100;
     document.getElementById("tempAriaBar").style.width = tempAriaWidth + "%";
 
     // Grafico della temperatura dell'asfalto
-    let tempAsfaltoWidth = (tempAsfalto / 80) * 100;  // Assuming 80°C as max for asphalt temperature
+    let tempAsfaltoWidth = (tempAsfalto / 80) * 100;
     if (tempAsfaltoWidth > 100) tempAsfaltoWidth = 100;
     document.getElementById("tempAsfaltoBar").style.width = tempAsfaltoWidth + "%";
 
@@ -43,41 +43,38 @@ function calcolaParametri() {
 
     // Feedback sulla temperatura delle gomme
     if (tempGomme < 30) {
-        feedback += "<p>Temperatura delle gomme: Bassa, potrebbe influire sulla prestazione.</p>";
+        feedback += "<p class='low'>Temperatura delle gomme: Bassa, potrebbe influire sulla prestazione.</p>";
     } else if (tempGomme > 120) {
-        feedback += "<p>Temperatura delle gomme: Alta, attenzione al surriscaldamento.</p>";
+        feedback += "<p class='high'>Temperatura delle gomme: Alta, attenzione al surriscaldamento.</p>";
     } else {
-        feedback += "<p>Temperatura delle gomme: Ottimale.</p>";
+        feedback += "<p class='optimal'>Temperatura delle gomme: Ottimale.</p>";
     }
 
     // Feedback sulla temperatura del motore
     if (tempMotore < 60) {
-        feedback += "<p>Temperatura del motore: Bassa, potrebbe non essere al massimo delle prestazioni.</p>";
+        feedback += "<p class='low'>Temperatura del motore: Bassa, potrebbe non essere al massimo delle prestazioni.</p>";
     } else if (tempMotore > 120) {
-        feedback += "<p>Temperatura del motore: Alta, attenzione al rischio di danni.</p>";
+        feedback += "<p class='high'>Temperatura del motore: Alta, attenzione al rischio di danni.</p>";
     } else {
-        feedback += "<p>Temperatura del motore: Ottimale.</p>";
+        feedback += "<p class='optimal'>Temperatura del motore: Ottimale.</p>";
     }
 
     // Feedback sul carico aerodinamico
     if (caricoAero < 3) {
-        feedback += "<p>Carico aerodinamico: Basso, potresti avere una minore stabilità.</p>";
+        feedback += "<p class='low'>Carico aerodinamico: Basso, potresti avere una minore stabilità.</p>";
     } else if (caricoAero > 7) {
-        feedback += "<p>Carico aerodinamico: Alto, maggiore stabilità ma resistenza all'aria aumentata.</p>";
+        feedback += "<p class='high'>Carico aerodinamico: Alto, maggiore stabilità ma resistenza all'aria aumentata.</p>";
     } else {
-        feedback += "<p>Carico aerodinamico: Ottimale.</p>";
+        feedback += "<p class='optimal'>Carico aerodinamico: Ottimale.</p>";
     }
 
     // Feedback sulla temperatura dell'aria
     if (tempAria < 10) {
-        feedback += "<p>Temperatura dell'aria: Fredda, ottima per le prestazioni del motore.</p>";
+        feedback += "<p class='optimal'>Temperatura dell'aria: Fredda, ottima per le prestazioni del motore.</p>";
     } else if (tempAria > 40) {
-        feedback += "<p>Temperatura dell'aria: Troppo calda, potrebbe ridurre le prestazioni.</p>";
+        feedback += "<p class='high'>Temperatura dell'aria: Troppo calda, potrebbe ridurre le prestazioni.</p>";
     } else {
-        feedback += "<p>Temperatura dell'aria: Ottimale per le prestazioni.</p>";
+        feedback += "<p class='optimal'>Temperatura dell'aria: Ottimale per le prestazioni.</p>";
     }
 
-    // Feedback sulla temperatura dell'asfalto
-    if (tempAsfalto < 15) {
-        feedback += "<p>Temperatura dell'asfalto: Bassa, potrebbe ridurre l'aderenza.</p>";
-    } else if (tempAsfalto > 60
+    // Feedback sulla
