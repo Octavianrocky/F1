@@ -77,4 +77,16 @@ function calcolaParametri() {
         feedback += "<p class='optimal'>Temperatura dell'aria: Ottimale per le prestazioni.</p>";
     }
 
-    // Feedback sulla
+    // Feedback sulla temperatura dell'asfalto
+    if (tempAsfalto < 20) {
+        feedback += "<p class='low'>Temperatura dell'asfalto: Bassa, rischio di perdita di aderenza.</p>";
+    } else if (tempAsfalto > 60) {
+        feedback += "<p class='high'>Temperatura dell'asfalto: Alta, attenzione al degrado delle gomme.</p>";
+    } else {
+        feedback += "<p class='optimal'>Temperatura dell'asfalto: Ottimale.</p>";
+    }
+
+    // Mostra feedback
+    document.getElementById("feedback").innerHTML = feedback;
+    document.getElementById("resultSection").style.display = "block";
+}
