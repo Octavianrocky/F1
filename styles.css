@@ -93,4 +93,28 @@ button:hover {
     margin-top: 30px;
     font-size: 16px;
     color: #f9a825;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+#feedback p {
+    line-height: 1.5;
+}
+
+#feedback p.low {
+    color: #ff5722; /* Red for low */
+}
+
+#feedback p.high {
+    color: #ff5722; /* Red for high */
+}
+
+#feedback p.optimal {
+    color: #4caf50; /* Green for optimal */
+}
+
+#feedback p.warning {
+    color: #ff9800; /* Orange for warning */
 }
