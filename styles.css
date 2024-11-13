@@ -77,44 +77,31 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
-    text-align: left;
+}
+
+.low {
+    color: #ff5722;
+}
+
+.high {
+    color: #e53935;
+}
+
+.warning {
+    color: #ffeb3b;
+}
+
+.optimal {
+    color: #4caf50;
 }
 
 .alert {
     color: #ff5722;
-    font-weight: bold;
 }
 
-#feedback p {
-    margin: 10px 0;
-}
-
-#feedback {
-    margin-top: 30px;
-    font-size: 16px;
-    color: #f9a825;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-}
-
-#feedback p {
-    line-height: 1.5;
-}
-
-#feedback p.low {
-    color: #ff5722; /* Red for low */
-}
-
-#feedback p.high {
-    color: #ff5722; /* Red for high */
-}
-
-#feedback p.optimal {
-    color: #4caf50; /* Green for optimal */
-}
-
-#feedback p.warning {
-    color: #ff9800; /* Orange for warning */
+.car-image {
+    width: 80%;
+    max-width: 600px;
+    margin: 30px auto;
+    border-radius: 15px;
 }
