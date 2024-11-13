@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoraggio Parametri Auto con Animazione 3D</title>
+    <title>Monitoraggio Parametri Auto</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,73 +11,62 @@
     <h1>Monitoraggio Parametri Auto</h1>
 
     <div class="container">
-        <div class="left-section">
-            <!-- Form per inserire i parametri -->
-            <div class="form-group">
-                <label for="tempGomme">Temperatura delle gomme (°C):</label>
-                <input type="number" id="tempGomme" placeholder="Inserisci la temperatura delle gomme">
-            </div>
-            <div class="form-group">
-                <label for="tempMotore">Temperatura del motore (°C):</label>
-                <input type="number" id="tempMotore" placeholder="Inserisci la temperatura del motore">
-            </div>
-            <div class="form-group">
-                <label for="caricoAero">Carico aerodinamico (unità):</label>
-                <input type="number" id="caricoAero" placeholder="Inserisci il carico aerodinamico">
-            </div>
-            <div class="form-group">
-                <label for="tempAria">Temperatura dell'aria (°C):</label>
-                <input type="number" id="tempAria" placeholder="Inserisci la temperatura dell'aria">
-            </div>
-            <div class="form-group">
-                <label for="tempAsfalto">Temperatura dell'asfalto (°C):</label>
-                <input type="number" id="tempAsfalto" placeholder="Inserisci la temperatura dell'asfalto">
-            </div>
-            <button onclick="calcolaParametri()">Calcola e Mostra Risultati</button>
-
-            <!-- Risultati visualizzati qui -->
-            <div id="resultSection" class="result" style="display:none;">
-                <h2>Parametri Inseriti:</h2>
-                <p>Temperatura delle gomme: <span id="tempGommeResult"></span>°C</p>
-                <div class="graph-bar">
-                    <div id="tempGommeBar" class="fill"></div>
-                </div>
-
-                <p>Temperatura del motore: <span id="tempMotoreResult"></span>°C</p>
-                <div class="graph-bar">
-                    <div id="tempMotoreBar" class="fill"></div>
-                </div>
-
-                <p>Carico aerodinamico: <span id="caricoAeroResult"></span></p>
-                <div class="graph-bar">
-                    <div id="caricoAeroBar" class="fill"></div>
-                </div>
-
-                <p>Temperatura dell'aria: <span id="tempAriaResult"></span>°C</p>
-                <div class="graph-bar">
-                    <div id="tempAriaBar" class="fill"></div>
-                </div>
-
-                <p>Temperatura dell'asfalto: <span id="tempAsfaltoResult"></span>°C</p>
-                <div class="graph-bar">
-                    <div id="tempAsfaltoBar" class="fill"></div>
-                </div>
-
-                <div id="feedback" class="result"></div>
-            </div>
+        <!-- Form per inserire i parametri -->
+        <div class="form-group">
+            <label for="tempGomme">Temperatura delle gomme (°C):</label>
+            <input type="number" id="tempGomme" placeholder="Inserisci la temperatura delle gomme">
         </div>
 
-        <!-- Sezione per l'animazione 3D dell'auto -->
-        <div class="right-section">
-            <div class="car-3d-wrapper">
-                <div class="car">
-                    <div class="car-body"></div>
-                    <div class="car-wheel front-left"></div>
-                    <div class="car-wheel front-right"></div>
-                    <div class="car-wheel back-left"></div>
-                    <div class="car-wheel back-right"></div>
-                </div>
+        <div class="form-group">
+            <label for="tempMotore">Temperatura del motore (°C):</label>
+            <input type="number" id="tempMotore" placeholder="Inserisci la temperatura del motore">
+        </div>
+
+        <div class="form-group">
+            <label for="caricoAero">Carico aerodinamico (unità):</label>
+            <input type="number" id="caricoAero" placeholder="Inserisci il carico aerodinamico">
+        </div>
+
+        <div class="form-group">
+            <label for="tempAria">Temperatura dell'aria (°C):</label>
+            <input type="number" id="tempAria" placeholder="Inserisci la temperatura dell'aria">
+        </div>
+
+        <div class="form-group">
+            <label for="tempAsfalto">Temperatura dell'asfalto (°C):</label>
+            <input type="number" id="tempAsfalto" placeholder="Inserisci la temperatura dell'asfalto">
+        </div>
+
+        <button onclick="calcolaParametri()">Calcola e Mostra Risultati</button>
+
+        <div id="resultSection" class="result" style="display:none;">
+            <h2>Parametri Inseriti:</h2>
+            <p>Temperatura delle gomme: <span id="tempGommeResult"></span>°C</p>
+            <div class="graph-bar">
+                <div id="tempGommeBar" class="fill"></div>
             </div>
+
+            <p>Temperatura del motore: <span id="tempMotoreResult"></span>°C</p>
+            <div class="graph-bar">
+                <div id="tempMotoreBar" class="fill"></div>
+            </div>
+
+            <p>Carico aerodinamico: <span id="caricoAeroResult"></span></p>
+            <div class="graph-bar">
+                <div id="caricoAeroBar" class="fill"></div>
+            </div>
+
+            <p>Temperatura dell'aria: <span id="tempAriaResult"></span>°C</p>
+            <div class="graph-bar">
+                <div id="tempAriaBar" class="fill"></div>
+            </div>
+
+            <p>Temperatura dell'asfalto: <span id="tempAsfaltoResult"></span>°C</p>
+            <div class="graph-bar">
+                <div id="tempAsfaltoBar" class="fill"></div>
+            </div>
+
+            <div id="feedback" class="result"></div>
         </div>
     </div>
 
