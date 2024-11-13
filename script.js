@@ -17,26 +17,36 @@ function calcolaParametri() {
     let tempGommeWidth = (tempGomme / 150) * 100;
     if (tempGommeWidth > 100) tempGommeWidth = 100;
     document.getElementById("tempGommeBar").style.width = tempGommeWidth + "%";
+    // Imposta il colore della barra delle gomme
+    setBarColor("tempGommeBar", tempGomme, 30, 120);
 
     // Grafico della temperatura del motore
     let tempMotoreWidth = (tempMotore / 150) * 100;
     if (tempMotoreWidth > 100) tempMotoreWidth = 100;
     document.getElementById("tempMotoreBar").style.width = tempMotoreWidth + "%";
+    // Imposta il colore della barra del motore
+    setBarColor("tempMotoreBar", tempMotore, 60, 120);
 
     // Grafico del carico aerodinamico
     let caricoAeroWidth = (caricoAero / 10) * 100;
     if (caricoAeroWidth > 100) caricoAeroWidth = 100;
     document.getElementById("caricoAeroBar").style.width = caricoAeroWidth + "%";
+    // Imposta il colore della barra del carico aerodinamico
+    setBarColor("caricoAeroBar", caricoAero, 3, 7);
 
     // Grafico della temperatura dell'aria
     let tempAriaWidth = (tempAria / 50) * 100;
     if (tempAriaWidth > 100) tempAriaWidth = 100;
     document.getElementById("tempAriaBar").style.width = tempAriaWidth + "%";
+    // Imposta il colore della barra della temperatura dell'aria
+    setBarColor("tempAriaBar", tempAria, 10, 40);
 
     // Grafico della temperatura dell'asfalto
     let tempAsfaltoWidth = (tempAsfalto / 80) * 100;
     if (tempAsfaltoWidth > 100) tempAsfaltoWidth = 100;
     document.getElementById("tempAsfaltoBar").style.width = tempAsfaltoWidth + "%";
+    // Imposta il colore della barra della temperatura dell'asfalto
+    setBarColor("tempAsfaltoBar", tempAsfalto, 20, 60);
 
     // Aggiungi feedback
     let feedback = '';
@@ -99,4 +109,16 @@ function calcolaParametri() {
     // Mostra feedback
     document.getElementById("feedback").innerHTML = feedback;
     document.getElementById("resultSection").style.display = "block";
+}
+
+function setBarColor(barId, value, minValue, maxValue) {
+    let bar = document.getElementById(barId);
+    let percentage = (value - minValue) / (maxValue - minValue) * 100;
+    if (percentage <= 20) {
+        bar.style.backgroundColor = "#ff5722"; // Rosso
+    } else if (percentage <= 70) {
+        bar.style.backgroundColor = "#ffeb3b"; // Giallo
+    } else {
+        bar.style.backgroundColor = "#4caf50"; // Verde
+    }
 }
