@@ -13,65 +13,39 @@ function calcolaParametri() {
     document.getElementById("tempAriaResult").innerText = tempAria.toFixed(2);
     document.getElementById("tempAsfaltoResult").innerText = tempAsfalto.toFixed(2);
 
-    // Feedback
-    let feedback = '';
-    feedback += feedbackTemperatura('Gomme', tempGomme, 75, 84, 85, 109, 110, 119);
-    feedback += feedbackTemperatura('Motore', tempMotore, 75, 83, 84, 115, 116, 140);
-    feedback += feedbackCaricoAerodinamico(caricoAero);
-    feedback += feedbackTemperatura('Aria', tempAria, 16, 21, 22, 29, 30, 36);
-    feedback += feedbackTemperatura('Asfalto', tempAsfalto, 13, 17, 18, 31, 32, 42);
+    // Imposta il colore delle barre in base ai valori
+    setBarColor("tempGommeBar", tempGomme, 75, 84, 109, 119, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("tempMotoreBar", tempMotore, 75, 83, 115, 140, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("caricoAeroBar", caricoAero, 0.1, 2, 3.5, 5, "", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("tempAriaBar", tempAria, 0, 15, 21, 36, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
+    setBarColor("tempAsfaltoBar", tempAsfalto, 0, 12, 17, 42, "°C", ["#e53935", "#ffeb3b", "#4caf50"]);
 
-    // Mostra il feedback
-    document.getElementById('feedback').innerHTML = feedback;
-
-    // Mostra la sezione dei risultati
-    document.getElementById('resultSection').style.display = 'block';
-
-    // Aggiorna le barre
-    aggiornaBarra("tempGommeBar", tempGomme, 75, 84, 119);
-    aggiornaBarra("tempMotoreBar", tempMotore, 75, 83, 140);
-    aggiornaBarra("caricoAeroBar", caricoAero, 2, 3.5, 5);
-    aggiornaBarra("tempAriaBar", tempAria, 16, 22, 36);
-    aggiornaBarra("tempAsfaltoBar", tempAsfalto, 18, 31, 42);
+    // Mostra i risultati
+    document.getElementById("resultSection").style.display = "block";
 }
 
-// Funzione per determinare il feedback di temperatura
-function feedbackTemperatura(nome, valore, minIntermedio, maxIntermedio, minOttimale, maxOttimale, minCritico, maxCritico) {
-    let testo = `<strong>${nome}:</strong> `;
-    if (valore < minIntermedio || valore > maxCritico) {
-        testo += `Valore fuori norma.`;
-    } else if (valore >= minIntermedio && valore <= maxIntermedio) {
-        testo += `Valore intermedio.`;
-    } else {
-        testo += `Valore ottimale.`;
-    }
-    return `<p>${testo}</p>`;
-}
+// Funzione per calcolare e impostare il colore della barra
+function setBarColor(elementId, value, minYellow, maxYellow, minGreen, maxGreen, unit, colors) {
+    let percentage = 0;
+    let color = colors[0]; // Imposta rosso di default
 
-// Funzione per il feedback del carico aerodinamico
-function feedbackCaricoAerodinamico(valore) {
-    let testo = "<strong>Carico aerodinamico:</strong> ";
-    if (valore <= 2) {
-        testo += "Auto più veloce sul dritto.";
-    } else if (valore <= 3.5) {
-        testo += "Carico medio.";
+    if (value < minYellow) {
+        percentage = 0; // Rosso
+    } else if (value >= minYellow && value <= maxYellow) {
+        percentage = ((value - minYellow) / (maxYellow - minYellow)) * 100; // Giallo
+        color = colors[1]; 
+    } else if (value > maxYellow && value <= minGreen) {
+        percentage = ((value - maxYellow) / (minGreen - maxYellow)) * 100; // Giallo sfumato a verde
+        color = colors[1];
+    } else if (value > minGreen && value <= maxGreen) {
+        percentage = ((value - minGreen) / (maxGreen - minGreen)) * 100; // Verde
+        color = colors[2]; 
     } else {
-        testo += "Auto più stabile in curva.";
+        percentage = 100; // Verde intenso
+        color = colors[2]; 
     }
-    return `<p>${testo}</p>`;
-}
 
-// Funzione per aggiornare la larghezza delle barre
-function aggiornaBarra(idBarra, valore, minIntermedio, maxIntermedio, max) {
-    let width = Math.min((valore / max) * 100, 100);
-    document.getElementById(idBarra).style.width = width + "%";
-
-    let barra = document.getElementById(idBarra);
-    if (valore < minIntermedio) {
-        barra.style.backgroundColor = "red"; // Valore troppo basso
-    } else if (valore >= minIntermedio && valore <= maxIntermedio) {
-        barra.style.backgroundColor = "yellow"; // Valore intermedio
-    } else {
-        barra.style.backgroundColor = "green"; // Valore ottimale
-    }
+    document.getElementById(elementId).style.width = percentage + "%";
+    document.getElementById(elementId).style.background = `linear-gradient(90deg, ${color} ${percentage}%, #fff ${percentage}%)`;
+    document.getElementById(elementId).style.transition = "width 0.3s, background 0.3s"; 
 }
