@@ -80,14 +80,4 @@ function calcolaParametri() {
     // Feedback sulla temperatura dell'asfalto
     if (tempAsfalto < 15) {
         feedback += "<p>Temperatura dell'asfalto: Bassa, potrebbe ridurre l'aderenza.</p>";
-    } else if (tempAsfalto > 60) {
-        feedback += "<p>Temperatura dell'asfalto: Alta, attenzione all'aderenza e al degrado degli pneumatici.</p>";
-    } else {
-        feedback += "<p>Temperatura dell'asfalto: Ottimale per le prestazioni.</p>";
-    }
-
-    // Mostra il feedback
-    document.getElementById("feedback").innerHTML = feedback;
-
-    // Mostra la sezione dei risultati
-    document.getElementById("resultSection").style.display = '
+    } else if (tempAsfalto > 60
