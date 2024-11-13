@@ -46,6 +46,8 @@ function calcolaParametri() {
         feedback += "<p class='low'>Temperatura delle gomme: Bassa, potrebbe influire sulla prestazione.</p>";
     } else if (tempGomme > 120) {
         feedback += "<p class='high'>Temperatura delle gomme: Alta, attenzione al surriscaldamento.</p>";
+    } else if (tempGomme >= 30 && tempGomme <= 50) {
+        feedback += "<p class='warning'>Temperatura delle gomme: Intermedia, monitorare le prestazioni.</p>";
     } else {
         feedback += "<p class='optimal'>Temperatura delle gomme: Ottimale.</p>";
     }
@@ -55,6 +57,8 @@ function calcolaParametri() {
         feedback += "<p class='low'>Temperatura del motore: Bassa, potrebbe non essere al massimo delle prestazioni.</p>";
     } else if (tempMotore > 120) {
         feedback += "<p class='high'>Temperatura del motore: Alta, attenzione al rischio di danni.</p>";
+    } else if (tempMotore >= 60 && tempMotore <= 90) {
+        feedback += "<p class='warning'>Temperatura del motore: Intermedia, monitorare l'efficienza.</p>";
     } else {
         feedback += "<p class='optimal'>Temperatura del motore: Ottimale.</p>";
     }
@@ -64,6 +68,8 @@ function calcolaParametri() {
         feedback += "<p class='low'>Carico aerodinamico: Basso, potresti avere una minore stabilità.</p>";
     } else if (caricoAero > 7) {
         feedback += "<p class='high'>Carico aerodinamico: Alto, maggiore stabilità ma resistenza all'aria aumentata.</p>";
+    } else if (caricoAero >= 3 && caricoAero <= 5) {
+        feedback += "<p class='warning'>Carico aerodinamico: Intermedio, buona stabilità ma attenzione alla resistenza.</p>";
     } else {
         feedback += "<p class='optimal'>Carico aerodinamico: Ottimale.</p>";
     }
@@ -73,6 +79,8 @@ function calcolaParametri() {
         feedback += "<p class='optimal'>Temperatura dell'aria: Fredda, ottima per le prestazioni del motore.</p>";
     } else if (tempAria > 40) {
         feedback += "<p class='high'>Temperatura dell'aria: Troppo calda, potrebbe ridurre le prestazioni.</p>";
+    } else if (tempAria >= 25 && tempAria <= 32) {
+        feedback += "<p class='warning'>Temperatura dell'aria: Intermedia, ottima per la guida ma monitorare.</p>";
     } else {
         feedback += "<p class='optimal'>Temperatura dell'aria: Ottimale per le prestazioni.</p>";
     }
@@ -82,6 +90,8 @@ function calcolaParametri() {
         feedback += "<p class='low'>Temperatura dell'asfalto: Bassa, rischio di perdita di aderenza.</p>";
     } else if (tempAsfalto > 60) {
         feedback += "<p class='high'>Temperatura dell'asfalto: Alta, attenzione al degrado delle gomme.</p>";
+    } else if (tempAsfalto >= 30 && tempAsfalto <= 40) {
+        feedback += "<p class='warning'>Temperatura dell'asfalto: Intermedia, ottima per la prestazione ma monitorare.</p>";
     } else {
         feedback += "<p class='optimal'>Temperatura dell'asfalto: Ottimale.</p>";
     }
